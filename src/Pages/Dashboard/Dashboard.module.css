@@ -1,0 +1,21 @@
+
+.dashboard{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    
+}
+
+.sidebarComponent{
+    width: 35%;
+    height: 100%;
+    background: lightgray;
+    /* border-right: 1px solid lightgray; */
+}
+
+.mainComponent{
+    width: 65%;
+    height: 100%;
+    /* background: lightblue; */
+}

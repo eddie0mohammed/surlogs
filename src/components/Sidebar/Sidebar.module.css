@@ -1,0 +1,65 @@
+
+.sidebar{
+    padding: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+    /* background: red; */
+    position: relative;
+
+}
+
+.dictionaries{
+    font-size: 2rem;
+}
+
+.new{
+    display: inline;
+    /* border: 1px solid white; */
+    padding: 0.5rem 1rem;;   
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 3px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgb(0, 187, 0);
+    color: white;
+    cursor: pointer;
+}
+
+.new:hover{
+    border: 1px solid rgb(0, 187, 0);
+    color: rgb(0, 187, 0);
+    background: white;
+}
+
+.dictionaryList{
+    margin-top: 2rem;
+    /* list-style: none; */
+    
+}
+
+.item{
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 1rem  0;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.item:hover{
+    color: red;
+    border: 1px solid red;
+}
+
+.delete{
+    color: black;
+}
+
+.delete:hover{
+    color:orangered;
+}

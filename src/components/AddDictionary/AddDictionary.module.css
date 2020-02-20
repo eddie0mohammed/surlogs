@@ -1,0 +1,74 @@
+
+.addDictionary{
+
+    padding: 2rem;
+}
+
+.heading{
+    font-size: 2rem;
+    width: 100%;
+    background: red;
+    padding: 1rem;
+    color: white;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.label{
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1rem 0;
+}
+
+.input{
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+
+.buttons{
+    margin-top: 2rem;
+    width: 50%;
+    margin-left: auto;
+    /* background: pink; */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.buttons button{
+    width: 8rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttons button:focus{
+    outline:none;
+}
+
+
+.cancel{
+    background: lightgray;
+    color: black;
+}
+
+.cancel:hover{
+    background: black;
+    color: white;
+}
+
+.submit{
+    background: green;
+    color: white;
+}
+
+.submit:hover{
+    background: lightgreen;
+    color: black;
+}

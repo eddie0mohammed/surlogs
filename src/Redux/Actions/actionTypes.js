@@ -1,0 +1,15 @@
+
+export const SELECT_DICTIONARY = 'SELECT_DICTIONARY';
+
+export const ADD_DICTIONARY = 'ADD_DICTIONARY';
+export const DELETE_DICTIONARY = 'DELETE_DICTIONARY';
+
+export const ADD_WORD = 'ADD_WORD';
+export const DELETE_WORD = 'DELETE_WORD';
+
+
+//MODAL
+
+export const SHOW_DIC_MODAL = 'SHOW_DIC_MODAL';
+export const SHOW_WORD_MODAL = 'SHOW_WORD_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
