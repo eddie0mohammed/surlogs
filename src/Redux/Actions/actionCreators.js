@@ -1,6 +1,10 @@
 
 import * as actionTypes from './actionTypes';
 
+import axios from 'axios';
+
+import {languages} from '../../components/AddDictionary/languages';
+
 
 //DICTIONARY
 export const selectDictionary = (id) => {
@@ -82,4 +86,49 @@ export const logout = () => {
     return {
         type: actionTypes.LOGOUT
     }
+}
+
+
+//TRANSLATION
+
+const fetchTranslationAction = (translation) => {
+    return {
+        type: actionTypes.FETCH_TRANSLATION,
+        payload: translation
+    }
+}
+
+export const fetchTranslation = (language, word) => {
+    return async (dispatch) => {
+        
+        try{
+            //fetch translation
+            const API_KEY = 'AIzaSyDeL6bhgaoEFxfGJofRM1yBdWBmmpsIGJ8';
+            let languageCode = getLanguageCode(language);
+
+            let text = word.trim();
+            text = text.split(' ').join('%20');
+
+
+            const response = await axios.get(`https://translation.googleapis.com/language/translate/v2?target=${languageCode}&key=${API_KEY}&q=${text}`)
+            console.log(response);
+            // const translation = ` (source: ${response.data.data.translations[0].detectedSourceLanguage}) : Translation - ${response.data.data.translations[0].translatedText.toUpperCase()} `;
+            const translation = response.data.data.translations[0].translatedText.toUpperCase();
+
+            dispatch(fetchTranslationAction(translation));
+
+        }catch(error){
+            console.log(error);
+        }
+
+
+      };
+}
+
+
+//get language code
+const getLanguageCode = (language) => {
+    
+    return languages[language];
+    
 }

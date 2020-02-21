@@ -79,3 +79,23 @@
     background: lightgreen;
     color: black;
 }
+
+
+.translateBtn{
+    width: 8rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border:none;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1rem;
+    background: orangered;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.translateBtn:active{
+    transform: translateY(2px);
+}

@@ -6,7 +6,9 @@ const initialState = {
     dictionaries: [
         {
             name: 'Dic 1',
-            language: 'English',
+            fromLanguage: 'English',
+            toLanguage: 'French',
+            languageCode: 'fr',
             words: [
                 {
                     word: 'Hello',
@@ -25,7 +27,9 @@ const initialState = {
 
         {
             name: 'Dic 2',
-            language: 'French',
+            fromLanguage: 'French',
+            toLanguage: 'Italian',
+            languageCode: 'it',
             words: [
                 {
                     word: 'Bonjour',
@@ -44,7 +48,9 @@ const initialState = {
 
         {
             name: 'Dic 3',
-            language: 'German',
+            fromLanguage: 'German',
+            toLanguage: 'English',
+            languageCode: 'en',
             words: [
                 {
                     word: 'Guten morgen',
@@ -63,6 +69,7 @@ const initialState = {
     ],
 
     selectedDictionary: '',
+    translatedWord: 'x'
 
 }
 
@@ -140,6 +147,14 @@ const dictionaryReducer = (state = initialState, action) => {
                     }
                 }
 
+
+        //FETCHING AND DISPLAYING TRANSLATION
+        case (actionTypes.FETCH_TRANSLATION):
+                return {
+                    ...state,
+                    translatedWord: action.payload
+                }
+
         default:
             return state;
     }
@@ -148,3 +163,4 @@ const dictionaryReducer = (state = initialState, action) => {
 }
 
 export default dictionaryReducer;
+

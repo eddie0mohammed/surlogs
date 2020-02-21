@@ -14,7 +14,7 @@ class Sidebar extends React.Component{
         return (
             this.props.dictionaries.map((dic, i) => {
                 return (
-                    <li key={i} className={styles.item} onClick={() => this.props.selectDic(i)}>{`${i + 1}. ${dic.name} - ${dic.language}`} <span className={styles.delete} onClick={() => this.props.deleteDictionary(i)}>X</span></li>
+                    <li key={i} className={styles.item} onClick={() => this.props.selectDic(i)}>{`${i + 1}. ${dic.name}: ${dic.fromLanguage} - ${dic.toLanguage}`} <span className={styles.delete} onClick={() => this.props.deleteDictionary(i)}>X</span></li>
                 )
             })
         )

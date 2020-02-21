@@ -28,7 +28,7 @@ class MainComponent extends React.Component{
 
                 <div className={styles.container}>
 
-                    <h3 className={styles.words}>{this.props.selectedDictionary.name} - {this.props.selectedDictionary.language}</h3>
+                    <h3 className={styles.words}>{this.props.selectedDictionary.name} : {this.props.selectedDictionary.fromLanguage} - {this.props.selectedDictionary.toLanguage}</h3>
 
                     <div className={styles.new} onClick={this.props.displayWordModal}>New Word</div>
 

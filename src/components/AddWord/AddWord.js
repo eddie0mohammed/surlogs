@@ -10,7 +10,7 @@ class AddWord extends React.Component{
 
     state = {
         word: '',
-        language: ''
+        translatedWord: ''
     }
 
     handleChange = (e) => {
@@ -22,35 +22,70 @@ class AddWord extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
 
-        this.props.addWord({word: this.state.word, language: this.state.language});
+        this.props.addWord({word: this.state.word, language: this.state.translatedWord});
 
         this.setState({
             word: '',
-            language: ''
+            translatedWord: ''
         })
 
         this.props.hideModal();
     }
 
+    handleCancel = () => {
+        this.props.hide();
+        this.setState({
+            word: '',
+            translatedWord: ''
+        })
+    }
+
+    disabledStatus = () => {
+        let check = true;
+
+        if (this.state.word && this.state.translatedWord){
+            check = false
+        }
+        return check;
+    }
+
+    handleTranslateClick = async (language, word) => {
+
+        if (word.length > 0){
+
+            await this.props.fetchTranslation(language, word);
+            this.setState({
+                translatedWord: this.props.translatedWord
+            });
+
+        }else{
+            console.log('Error, enter a word to translate');
+        }
+
+    }
+
     render(){
+            
 
         return (
             <div className={styles.addWord}>
 
-                <h2 className={styles.heading}>New Word</h2>
+                <h2 className={styles.heading}>Translate New Word To: {this.props.selectedDictionary ? this.props.selectedDictionary.toLanguage : ''}</h2>
 
                 <form className={styles.form} onSubmit={this.handleSubmit}>
 
                     <label htmlFor="word" className={styles.label} >New Word</label>
                     <input type="text" name="word" className={styles.input} value={this.state.word} onChange={this.handleChange}/>
 
-                    <label htmlFor="language" className={styles.label} >Language</label>
-                    <input type="text" name="language" className={styles.input} value={this.state.language} onChange={this.handleChange}/>
+                    <div className={styles.translateBtn} onClick={() => this.handleTranslateClick(this.props.selectedDictionary.toLanguage, this.state.word)}>Translate</div>
+
+                    <label htmlFor='translatedWord' className={styles.label} >Translated Word</label>
+                    <input type="text" name="translatedWord" className={styles.input} value={this.state.translatedWord} onChange={this.handleChange} disabled/>
                     
                     <div className={styles.buttons}>
 
-                        <div className={styles.cancel} onClick={this.props.hide}>Cancel</div>
-                        <button type="submit" className={styles.submit} >Add</button>
+                        <div className={styles.cancel} onClick={this.handleCancel}>Cancel</div>
+                        <button type="submit" className={styles.submit} disabled={this.disabledStatus()}>Add</button>
 
                     </div>
 
@@ -63,7 +98,9 @@ class AddWord extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
+        selectedDictionary: state.dic.selectedDictionary,
 
+        translatedWord: state.dic.translatedWord
     }
 
 }
@@ -72,7 +109,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addWord: (word) => dispatch(actionCreators.addWord(word)) ,
 
-        hideModal: () => dispatch(actionCreators.hideModal())
+        hideModal: () => dispatch(actionCreators.hideModal()),
+
+        fetchTranslation: (language, word) => dispatch(actionCreators.fetchTranslation(language, word))
 
     
     }
