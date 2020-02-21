@@ -35,6 +35,13 @@ export const addWord = (word) => {
     }
 }
 
+export const deleteWord = (id) => {
+    return {
+        type: actionTypes.DELETE_WORD,
+        payload: id
+    }
+}
+
 
 //MODAL
 
@@ -53,5 +60,26 @@ export const showWordModal = () => {
 export const hideModal = () => {
     return {
         type: actionTypes.HIDE_MODAL
+    }
+}
+
+
+//SIGN_IN
+
+export const signIn = () => {
+    return {
+        type: actionTypes.SIGN_IN
+    }
+}
+
+export const displayErrorMsg = () => {
+    return {
+        type: actionTypes.SHOW_ERROR
+    }
+}
+
+export const logout = () => {
+    return {
+        type: actionTypes.LOGOUT
     }
 }

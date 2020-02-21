@@ -49,7 +49,7 @@ class AddWord extends React.Component{
                     
                     <div className={styles.buttons}>
 
-                        <button className={styles.cancel} onClick={this.props.hide}>Cancel</button>
+                        <div className={styles.cancel} onClick={this.props.hide}>Cancel</div>
                         <button type="submit" className={styles.submit} >Add</button>
 
                     </div>

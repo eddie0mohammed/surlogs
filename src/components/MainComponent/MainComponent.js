@@ -14,7 +14,7 @@ class MainComponent extends React.Component{
     renderWordList = () => {
         return this.props.selectedDictionary.words.map((word, i) => {
             return (
-                <li key={i} className={styles.item}>{`${i + 1}. ${word.word} - ${word.language}`} <span className={styles.delete}>X</span></li>
+                <li key={i} className={styles.item}>{`${i + 1}. ${word.word} - ${word.language}`} <span className={styles.delete} onClick={() => this.props.deleteWord(i)}>X</span></li>
             )
         })
     }
@@ -60,7 +60,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        displayWordModal: () => dispatch(actionCreators.showWordModal())
+        displayWordModal: () => dispatch(actionCreators.showWordModal()),
+
+        deleteWord: (id) => dispatch(actionCreators.deleteWord(id))
     }
 }
 

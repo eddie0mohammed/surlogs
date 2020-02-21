@@ -10,3 +10,14 @@
 
 }
 
+.logout{
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.logout:hover{
+    color:red;
+    background: white;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Login from './Pages/Login/Login';
@@ -28,8 +28,8 @@ class App extends React.Component {
 
         <Switch>
 
-          <Route path='/' exact component={Login} />
-          <Route path='/dashboard' exact component={DashBoard} />
+          <Route path='/' exact render={() => (this.props.logged ? <Redirect to='/dashboard' /> : <Login /> )} />
+          <Route path='/dashboard' exact render={() => (this.props.logged ? <DashBoard /> : <Redirect to='/' />)} />
 
         </Switch>
 
@@ -61,6 +61,8 @@ const mapStateToProps = (state) => {
   return {
     showDicModal: state.modal.showDicModal,
     showWordModal: state.modal.showWordModal,
+
+    logged: state.auth.logged
   }
 }
 

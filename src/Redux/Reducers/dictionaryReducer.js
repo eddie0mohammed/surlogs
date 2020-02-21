@@ -70,6 +70,7 @@ const dictionaryReducer = (state = initialState, action) => {
 
     switch(action.type){
 
+        //SELECT DICTIONARY TO DISPLAY
         case (actionTypes.SELECT_DICTIONARY):
             const selectedDic = state.dictionaries.filter((dic, i) => i === action.payload)[0];
             // console.log(selectedDic);
@@ -78,6 +79,7 @@ const dictionaryReducer = (state = initialState, action) => {
                 selectedDictionary: selectedDic
             }
 
+        //ADD NEW DICTIONARY TO DICTIONARY LIST
         case (actionTypes.ADD_DICTIONARY):
             let updatedDic = [...state.dictionaries, action.payload];
             return {
@@ -85,6 +87,7 @@ const dictionaryReducer = (state = initialState, action) => {
                 dictionaries: updatedDic
             }
 
+        //DELETE DICTIONARY FROM LIST
         case (actionTypes.DELETE_DICTIONARY):
             let filteredDic = state.dictionaries.filter((elem, i) => i !== action.payload);
             return{
@@ -93,17 +96,49 @@ const dictionaryReducer = (state = initialState, action) => {
             }
 
 
+        //ADD NEW WORD TO SPECIFIC DICTIONARY LIST
         case (actionTypes.ADD_WORD):
             const updatedWords = [...state.selectedDictionary.words, action.payload]
             // console.log(updatedWords);
+            const selectedDictionary = state.selectedDictionary;
+            selectedDictionary.words = updatedWords;
+            // console.log(selectedDictionary);  
+            let filteredDict = [...state.dictionaries].filter(elem => elem.name !== state.selectedDictionary.name);
+            // console.log(filteredDict);  
+            filteredDict = [...filteredDict, selectedDictionary];
+            // console.log(filteredDict);
             
             
             return {
                 ...state,
-                ...state.selectedDictionary,
-                words: updatedWords
+                dictionaries: filteredDict,
+                selectedDictionary: {
+                    ...state.selectedDictionary,
+                    selectedDictionary
+                }
                 
             }
+
+        //REMOVE WORD FROM SPECIFIC DICTIONARY
+        case (actionTypes.DELETE_WORD):
+                const filteredWords = [...state.selectedDictionary.words].filter((elem, i) => i !== action.payload);
+                // console.log(filteredWords);
+                const newSelectedDictionary = state.selectedDictionary;
+                newSelectedDictionary.words = filteredWords;
+                // console.log(selectedDictionary);  
+                let newFilteredDict = [...state.dictionaries].filter(elem => elem.name !== state.selectedDictionary.name);
+                // console.log(filteredDict);  
+                newFilteredDict = [...newFilteredDict, newSelectedDictionary];
+                // console.log(filteredDict);
+
+                return {
+                    ...state,
+                    dictionaries: newFilteredDict,
+                    selectedDictionary: {
+                        ...state.selectedDictionary,
+                        newSelectedDictionary
+                    }
+                }
 
         default:
             return state;
