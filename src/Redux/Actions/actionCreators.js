@@ -103,7 +103,6 @@ export const fetchTranslation = (language, word) => {
         
         try{
             //fetch translation
-            const API_KEY = 'AIzaSyDeL6bhgaoEFxfGJofRM1yBdWBmmpsIGJ8';
             let languageCode = getLanguageCode(language);
 
             let text = word.trim();
