@@ -11,15 +11,36 @@ import * as actionCreators from '../../Redux/Actions/actionCreators';
 class MainComponent extends React.Component{
 
 
+    handlePlayBtnClick = async (language, toLanguage, e) => {
+
+        await this.props.fetchSound(language, toLanguage);
+        this.refs.audio.play();
+
+    }
+
     renderWordList = () => {
         return this.props.selectedDictionary.words.map((word, i) => {
             return (
-                <li key={i} className={styles.item}>{`${i + 1}. ${word.word} - ${word.language}`} <span className={styles.delete} onClick={() => this.props.deleteWord(i)}>X</span></li>
+                <li key={i} className={styles.item}>
+                
+                    {`${i + 1}. ${word.word} - ${word.language}`}
+
+                    <audio ref='audio' controls id={`audio-${word.word}`} src={`data:audio/mp3;base64, ${this.props.currentSound.audioContent}`} hidden></audio>
+                    <button className={styles.play} onClick={() => this.handlePlayBtnClick(word.language, this.props.selectedDictionary.toLanguage)}>Play</button>
+
+                    
+                    <span className={styles.delete} onClick={() => this.props.deleteWord(i)}>
+                        X
+                    </span>
+
+                </li>
             )
         })
     }
 
     render(){
+
+        // console.log(this.props.currentSound);
 
         return this.props.selectedDictionary ?
 
@@ -53,7 +74,9 @@ class MainComponent extends React.Component{
 const mapStateToProps = (state) => {
     return {
 
-        selectedDictionary: state.dic.selectedDictionary
+        selectedDictionary: state.dic.selectedDictionary,
+
+        currentSound: state.sound.currentSound
 
     }
 }
@@ -62,7 +85,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         displayWordModal: () => dispatch(actionCreators.showWordModal()),
 
-        deleteWord: (id) => dispatch(actionCreators.deleteWord(id))
+        deleteWord: (id) => dispatch(actionCreators.deleteWord(id)),
+
+        fetchSound: (translatedWord, translatedTo) => dispatch(actionCreators.fetchSound(translatedWord, translatedTo))
     }
 }
 

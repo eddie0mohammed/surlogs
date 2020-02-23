@@ -69,7 +69,7 @@ const initialState = {
     ],
 
     selectedDictionary: '',
-    translatedWord: 'x'
+    translatedWord: ''
 
 }
 

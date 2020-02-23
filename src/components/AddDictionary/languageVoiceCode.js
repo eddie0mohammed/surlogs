@@ -1,0 +1,30 @@
+
+export const languageVoiceCodes = {
+    arabic: 'ar-XA',
+    czech: 'cs-CZ',
+    danish: 'da-DK',
+    dutch: 'nl-NL',
+    english: 'en-US',
+    finish: 'fi-FI',
+    french: 'fr-FR',
+    german: 'de-DE',
+    greek: 'el-GR',
+    hindi: 'hi-IN',
+    hungarian: 'hu-HU',
+    indonesian: 'id-ID',
+    italian: 'it-IT',
+    japanese: 'ja-JP',
+    korean: 'ko-KR',
+    chinese: 'cmn-CN',
+    norwegian: 'nb-NO',
+    polish: 'pl-PL',
+    portugese: 'pt-PT',
+    russian: 'ru-RU',
+    slovak: 'sk-SK',
+    spanish: 'es-ES',
+    swedish: 'sv-SE',
+    turkish: 'tr-TR',
+    ukrainian: 'uk-UA',
+    vietnamese: 'vi-VN'
+
+}

@@ -26,3 +26,9 @@ export const LOGOUT = 'LOGOUT';
 // FETCH TRANSLATION
 
 export const FETCH_TRANSLATION = 'FETCH_TRANSLATION';
+
+
+
+//AUDIO
+
+export const FETCH_SOUND =  'FETCH_SOUND';
