@@ -45,7 +45,7 @@ class MainComponent extends React.Component{
         return this.props.selectedDictionary ?
 
         (
-            <div className={styles.mainComponent}>
+            <div className={styles.mainComponent} data-test='main-component'>
 
                 <div className={styles.container}>
 
@@ -66,7 +66,7 @@ class MainComponent extends React.Component{
         )
         :
         (
-            <p className={styles.message}>Select a dictionary to display words</p>
+            <p className={styles.message} data-test="para-component">Select a dictionary to display words</p>
         )
     }
 }

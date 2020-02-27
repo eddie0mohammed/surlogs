@@ -69,20 +69,20 @@ class AddDictionary extends React.Component{
         
 
         return (
-            <div className={styles.addDictionary}>
+            <div className={styles.addDictionary} data-test='addDictionary-component'>
                 
                 <h2 className={styles.heading}>New Dictionary</h2>
 
-                <form className={styles.form} onSubmit={this.handleSubmit}>
+                <form className={styles.form} onSubmit={this.handleSubmit} data-test="form-component">
 
                     <label htmlFor="name" className={styles.label} >Dictionary Name</label>
-                    <input type="text" name="name" className={styles.input} value={this.state.name} onChange={this.handleChange}/>
+                    <input type="text" name="name" className={styles.input} value={this.state.name} onChange={this.handleChange} data-test='name-component'/>
 
                     <label htmlFor="fromLanguage" className={styles.label} >Language: From</label>
-                    <input type="text" name="fromLanguage" className={styles.input} value={this.state.fromLanguage} onChange={this.handleChange}/>
+                    <input type="text" name="fromLanguage" className={styles.input} value={this.state.fromLanguage} onChange={this.handleChange} data-test="fromLanguage-component"/>
                     
                     <label htmlFor="toLanguage" className={styles.label} >Language: to</label>
-                    <select name="toLanguage" className={styles.select} value={this.state.toLanguage} onChange={this.handleChange} >
+                    <select name="toLanguage" className={styles.select} value={this.state.toLanguage} onChange={this.handleChange} data-test="toLanguage-component">
                         
                         <option  value='choice' hidden>Choose language</option>
 
@@ -92,7 +92,7 @@ class AddDictionary extends React.Component{
 
                     
                     
-                    <div className={styles.buttons}>
+                    <div className={styles.buttons} data-test="buttons-component">
 
                         <div className={styles.cancel} onClick={this.handleCancel}>Cancel</div>
                         <button type="submit" className={styles.submit} disabled={this.disabledStatus()}>Add</button>

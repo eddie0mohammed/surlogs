@@ -47,29 +47,29 @@ class Login extends React.Component{
     render(){
 
         return (
-            <div className={styles.Login}>
+            <div className={styles.Login} data-test="input-component">
 
-                <div className={styles.loginContainer}>
+                <div className={styles.loginContainer }>
 
                     <h2 className={styles.header}>My Dictionary</h2>
                     <h3 className={styles.login}>Login</h3>
 
-                    <form className={styles.form} onSubmit={this.handleSubmit}>
+                    <form className={styles.form} onSubmit={this.handleSubmit} data-test="form-component">
 
                         <label htmlFor="email" className={styles.label}>Email</label>
-                        <input type="email" name="email" className={styles.input} required value={this.state.email} onChange={this.handleChange}/>
+                        <input type="email" name="email" className={styles.input} required value={this.state.email} onChange={this.handleChange} data-test="emailInput-component"/>
 
                         <label htmlFor="password" className={styles.label}>Password</label>
-                        <input type="password" name="password" className={styles.input} required value={this.state.password} onChange={this.handleChange}/>
+                        <input type="password" name="password" className={styles.input} required value={this.state.password} onChange={this.handleChange} data-test="passwordInput-component"/>
 
                         {this.renderError()}
 
-                        <input type="submit" value="SUBMIT" className={styles.submit}/>
+                        <input type="submit" value="SUBMIT" className={styles.submit} data-test="submit-btn"/>
 
                     </form>
                 </div>
 
-                <div className={styles.credentials}>
+                <div className={styles.credentials} data-test="credentials-component">
                     <p>Login Credentials:</p>
                     <p>Email: test@test.com</p>
                     <p>Password: 11111111</p>

@@ -68,21 +68,21 @@ class AddWord extends React.Component{
             
 
         return (
-            <div className={styles.addWord}>
+            <div className={styles.addWord} data-test="addWord-component">
 
                 <h2 className={styles.heading}>Translate New Word To: {this.props.selectedDictionary ? this.props.selectedDictionary.toLanguage : ''}</h2>
 
-                <form className={styles.form} onSubmit={this.handleSubmit}>
+                <form className={styles.form} onSubmit={this.handleSubmit} data-test="form-component">
 
                     <label htmlFor="word" className={styles.label} >New Word</label>
-                    <input type="text" name="word" className={styles.input} value={this.state.word} onChange={this.handleChange}/>
+                    <input type="text" name="word" className={styles.input} value={this.state.word} onChange={this.handleChange} data-test="word-component"/>
 
                     <div className={styles.translateBtn} onClick={() => this.handleTranslateClick(this.props.selectedDictionary.toLanguage, this.state.word)}>Translate</div>
 
                     <label htmlFor='translatedWord' className={styles.label} >Translated Word</label>
-                    <input type="text" name="translatedWord" className={styles.input} value={this.state.translatedWord} onChange={this.handleChange} disabled/>
+                    <input type="text" name="translatedWord" className={styles.input} value={this.state.translatedWord} onChange={this.handleChange} disabled  data-test="translatedWord-component"/>
                     
-                    <div className={styles.buttons}>
+                    <div className={styles.buttons} data-test='buttons-component'>
 
                         <div className={styles.cancel} onClick={this.handleCancel}>Cancel</div>
                         <button type="submit" className={styles.submit} disabled={this.disabledStatus()}>Add</button>

@@ -1,10 +1,10 @@
 
-import * as actionTypes from '../Actions/actionTypes';
+import * as actionTypes from '../../Actions/actionTypes';
 
 
 const initialState = {
 
-    logged: true,
+    logged: false,
     email: 'test@test.com',
     password: '11111111',
     error: false

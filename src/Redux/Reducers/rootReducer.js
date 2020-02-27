@@ -1,10 +1,10 @@
 
 import {combineReducers} from 'redux';
 
-import dictionaryReducer from './dictionaryReducer';
-import modalReducer from './modalReducer';
-import authReducer from './authReducer';
-import soundReducer from './soundReducer';
+import dictionaryReducer from './dictionaryReducer/dictionaryReducer';
+import modalReducer from './modalReducer/modalReducer';
+import authReducer from './authReducer/authReducer';
+import soundReducer from './soundReducer/soundReducer';
 
 
 const rootReducer = combineReducers({

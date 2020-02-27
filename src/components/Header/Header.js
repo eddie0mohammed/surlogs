@@ -7,21 +7,17 @@ import {connect} from 'react-redux';
 
 import * as actionCreators from '../../Redux/Actions/actionCreators';
 
-class Header extends React.Component{
-
-    
-    render(){
+const Header = (props) => {
 
         return (
-            <div className={styles.header}>
+            <div className={styles.header} data-test='header-component'>
 
                 <div className={styles.logo}>MY DICTIONARY</div>
 
-                <div className={styles.logout} style={{display: `${this.props.logged ? 'Block' : "none"}`}} onClick={this.props.logout}>Logout</div>
+                <div className={styles.logout} style={{display: `${props.logged ? 'Block' : "none"}`}} onClick={props.logout}>Logout</div>
 
             </div>
         )
-    }
 }
 
 const mapStateToProps = (state) => {

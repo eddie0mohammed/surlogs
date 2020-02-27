@@ -36,7 +36,7 @@ const loadFromLocalStorage = () => {
 
 const persistedState = loadFromLocalStorage();
 
-const middlewares = [thunk];
+export const middlewares = [thunk];
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -7,13 +7,11 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import MainComponent from '../../components/MainComponent/MainComponent';
 
 
-class Dashboard extends React.Component{
+const Dashboard = () => {
 
-
-    render(){
 
         return (
-            <div className={styles.dashboard}>
+            <div className={styles.dashboard} data-test="dashboard-component">
 
                 <div className={styles.sidebarComponent}>
                     <Sidebar />
@@ -28,7 +26,7 @@ class Dashboard extends React.Component{
 
             </div>
         )
-    }
+    
 }
 
 export default Dashboard;
