@@ -66,23 +66,41 @@
     border-bottom: 1px solid grey;
 
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    align-items: center;
 
+}
+
+.translatedWord{
+    color: orangeRed;
+    margin-left: 20px;
 }
 
 .delete{
     cursor: pointer;
+    margin-left: auto;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .delete:hover{
     color: red;
+    border: 1px solid red;
+
 }
 
 
 .play{
-    padding: 0.5rem 1rem;
+    padding:  1rem 1.5rem;
     border-radius: 3px;
+    font-size: 1.5rem;
+    font-weight: 600;
     cursor: pointer;
+
+    margin-left: 20px;
+    align-self: center;
+    
 }
 .play:hover{
     background: grey;

@@ -23,14 +23,16 @@ class MainComponent extends React.Component{
             return (
                 <li key={i} className={styles.item}>
                 
-                    {`${i + 1}. ${word.word} - ${word.language}`}
+                    {`${i + 1}. ${word.word} -`}
+
+                    <span className={styles.translatedWord}>{word.language}</span>
 
                     <audio ref='audio' controls id={`audio-${word.word}`} src={`data:audio/mp3;base64, ${this.props.currentSound.audioContent}`} hidden></audio>
                     <button className={styles.play} onClick={() => this.handlePlayBtnClick(word.language, this.props.selectedDictionary.toLanguage)}>Play</button>
 
                     
                     <span className={styles.delete} onClick={() => this.props.deleteWord(i)}>
-                        X
+                        Delete
                     </span>
 
                 </li>

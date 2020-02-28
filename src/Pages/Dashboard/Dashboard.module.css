@@ -19,3 +19,15 @@
     height: 100%;
     /* background: lightblue; */
 }
+
+
+@media (min-width: 1000px){
+    .sidebarComponent{
+        width: 25%;
+
+    }
+
+    .mainComponent{
+        width: 75%;
+    }
+}

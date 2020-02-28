@@ -11,16 +11,16 @@ const initialState = {
             languageCode: 'fr',
             words: [
                 {
-                    word: 'Hello',
-                    language: 'english'
-                },
-                {
-                    word: 'Hi',
-                    language: 'english'
-                },
-                {
                     word: 'Good morning',
-                    language: 'english'
+                    language: 'Bonjour'
+                },
+                {
+                    word: 'Good afternoon',
+                    language: 'Bonne apresmidi'
+                },
+                {
+                    word: 'Good night',
+                    language: 'Bonne nuit'
                 }
             ]
         },
@@ -28,20 +28,20 @@ const initialState = {
         {
             name: 'Dic 2',
             fromLanguage: 'French',
-            toLanguage: 'Italian',
-            languageCode: 'it',
+            toLanguage: 'English',
+            languageCode: 'en',
             words: [
                 {
                     word: 'Bonjour',
-                    language: 'french'
+                    language: 'Good morning'
+                },
+                {
+                    word: 'Bonne nuit',
+                    language: 'Good night'
                 },
                 {
                     word: 'Salut',
-                    language: 'french'
-                },
-                {
-                    word: 'Bonsoir',
-                    language: 'french'
+                    language: 'Hello'
                 }
             ]
         },
@@ -54,15 +54,15 @@ const initialState = {
             words: [
                 {
                     word: 'Guten morgen',
-                    language: 'german'
+                    language: 'Good morning'
                 },
                 {
                     word: 'Guten tag',
-                    language: 'german'
+                    language: 'Good day'
                 },
                 {
                     word: 'Guten abend',
-                    language: 'german'
+                    language: 'Good afternoon'
                 },
             ]
         }
